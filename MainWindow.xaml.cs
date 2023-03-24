@@ -97,8 +97,9 @@ namespace Week7FSM
         private void btn_Collect_Click(object sender, RoutedEventArgs e)
         {
             tb_Output.Text = $"You have collected your {currentOutput}!";
-
-            state = totalCollected > 0 ? VendState.ACCEPTING : VendState.AWAITING;
+            tb_Output.Text += totalCollected > 0 ? $"\nYour change is {totalCollected.ToString("C")}" : string.Empty;
+            totalCollected = 0;
+            state = VendState.AWAITING;
         }
 
         /// <summary>
